@@ -9,6 +9,12 @@ export default defineConfig({
     screenshotOnRunFailure: true,
     viewportWidth: 1280,
     viewportHeight: 720,
+    screenshotsFolder: 'cypress/screenshots',
+    trashAssetsBeforeRuns: true,
+    // Custom screenshot naming to avoid long filenames
+    screenshotFileName: (details) => {
+      return `${details.specName}_${details.testFailure ? 'failed' : 'passed'}_${Date.now()}`;
+    },
   },
   component: {
     devServer: {

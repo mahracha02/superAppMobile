@@ -471,7 +471,7 @@ const translations = {
 };
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<SupportedLanguage>('ar');
+  const [language, setLanguageState] = useState<SupportedLanguage>('en');
 
   // Load language from localStorage on initialization
   useEffect(() => {

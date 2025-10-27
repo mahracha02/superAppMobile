@@ -3,37 +3,37 @@ describe('Welcome Page', () => {
     cy.visit('/');
   });
 
-  it('should display welcome page in Arabic by default', () => {
-    cy.contains('مرحباً بك في متجرنا').should('be.visible');
-    cy.contains('متجرك المفضل على الإنترنت').should('be.visible');
-  });
-
-  it('should change language to English', () => {
-    // Open language selector
-    cy.get('[role="combobox"]').click();
-    
-    // Select English
-    cy.contains('English').click();
-    
-    // Verify text changed to English
+  it('displays English welcome text by default', () => {
     cy.contains('Welcome to our store').should('be.visible');
     cy.contains('Your favorite online supermarket').should('be.visible');
   });
 
-  it('should navigate to home page when clicking start button', () => {
-    cy.contains('ابدأ').click();
+  it('changes language to Arabic', () => {
+    // Open language selector
+    cy.get('[role="combobox"]').click();
+    
+    // Select Arabic
+    cy.contains('العربية').click();
+    
+    // Verify text changed to Arabic
+    cy.contains('مرحباً بك في متجرنا').should('be.visible');
+    cy.contains('متجرك المفضل على الإنترنت').should('be.visible');
+  });
+
+  it('navigates to home page', () => {
+    cy.contains('Start').click();
     cy.url().should('include', '/home');
   });
 
-  it('should maintain selected language after navigation', () => {
-    // Change to English
+  it('maintains language after navigation', () => {
+    // Change to Arabic
     cy.get('[role="combobox"]').click();
-    cy.contains('English').click();
+    cy.contains('العربية').click();
     
     // Navigate to home
-    cy.contains('Start').click();
+    cy.contains('ابدأ').click();
     
-    // Verify language is still English
-    cy.contains('What are you looking for today?').should('be.visible');
+    // Verify language is still Arabic
+    cy.contains('ماذا تبحث عن اليوم؟').should('be.visible');
   });
 }); 
