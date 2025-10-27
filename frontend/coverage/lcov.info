@@ -1,0 +1,17 @@
+TN:
+SF:src\add.ts
+FN:1,add
+FN:5,isPalandrome
+FNF:2
+FNH:2
+FNDA:2,add
+FNDA:2,isPalandrome
+DA:1,1
+DA:2,2
+DA:5,1
+DA:6,2
+LF:4
+LH:4
+BRF:0
+BRH:0
+end_of_record
